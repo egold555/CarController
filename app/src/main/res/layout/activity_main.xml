@@ -50,28 +50,24 @@
                 android:id="@+id/colorButton1"
                 style="@style/colorBox"
                 android:layout_weight="1"
-                android:text="1"
                 android:background="#f00"/>
 
             <Button
                 android:id="@+id/colorButton2"
                 style="@style/colorBox"
                 android:layout_weight="1"
-                android:text="2"
                 android:background="#fa0"/>
 
             <Button
                 android:id="@+id/colorButton3"
                 style="@style/colorBox"
                 android:layout_weight="1"
-                android:text="3"
                 android:background="#ff0"/>
 
             <Button
                 android:id="@+id/colorButton4"
                 style="@style/colorBox"
                 android:layout_weight="1"
-                android:text="4"
                 android:background="#0f0"/>
         </TableRow>
          <TableRow
@@ -84,28 +80,24 @@
                     android:id="@+id/colorButton5"
                     style="@style/colorBox"
                     android:layout_weight="1"
-                    android:text="5"
                     android:background="#0ff"/>
 
                 <Button
                     android:id="@+id/colorButton6"
                     style="@style/colorBox"
                     android:layout_weight="1"
-                    android:text="6"
                     android:background="#00f"/>
 
                 <Button
                     android:id="@+id/colorButton7"
                     style="@style/colorBox"
                     android:layout_weight="1"
-                    android:text="7"
                     android:background="#f0f"/>
 
                 <Button
                     android:id="@+id/colorButton8"
                     style="@style/colorBox"
                     android:layout_weight="1"
-                    android:text="8"
                     android:background="#fff"/>
          </TableRow>
     </TableLayout>
