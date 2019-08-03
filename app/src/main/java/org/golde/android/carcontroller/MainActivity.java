@@ -7,10 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import org.golde.android.carcontroller.bluetooth.BlinkyController;
 import org.golde.android.carcontroller.bluetooth.BluetoothConstants;
 import org.golde.android.carcontroller.ui.BetterColor;
-import org.golde.android.carcontroller.ui.BrightnessPicker;
+import org.golde.android.carcontroller.ui.picker.BrightnessPicker;
 import org.golde.android.carcontroller.ui.ColorChangeCallback;
-import org.golde.android.carcontroller.ui.ColorPickerButtons;
-import org.golde.android.carcontroller.ui.ColorPickerWheel;
+import org.golde.android.carcontroller.ui.picker.ColorPickerButtons;
+import org.golde.android.carcontroller.ui.picker.ColorPickerWheel;
 import org.golde.android.carcontroller.ui.ColorViewer;
 import org.golde.android.carcontroller.voicecontrol.NotificationService;
 

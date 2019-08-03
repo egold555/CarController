@@ -37,21 +37,6 @@ public class BetterColor {
         return this;
     }
 
-//    public void setR(int in){
-//        this.r = in;
-//        update();
-//    }
-//
-//    public void setG(int in){
-//        this.g = in;
-//        update();
-//    }
-//
-//    public void setB(int in){
-//        this.b = in;
-//        update();
-//    }
-
     public BetterColor setBrightness(int in){
         this.brightness = in;
         update();

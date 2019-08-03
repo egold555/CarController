@@ -1,10 +1,12 @@
-package org.golde.android.carcontroller.ui;
+package org.golde.android.carcontroller.ui.picker;
 
 import android.view.View;
 import android.widget.Button;
 
 import org.golde.android.carcontroller.MainActivity;
 import org.golde.android.carcontroller.R;
+import org.golde.android.carcontroller.ui.BetterColor;
+import org.golde.android.carcontroller.ui.ColorChangeCallback;
 
 public class ColorPickerButtons {
 

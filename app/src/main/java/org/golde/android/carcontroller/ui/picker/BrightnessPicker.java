@@ -1,4 +1,4 @@
-package org.golde.android.carcontroller.ui;
+package org.golde.android.carcontroller.ui.picker;
 
 import android.widget.SeekBar;
 

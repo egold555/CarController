@@ -1,4 +1,4 @@
-package org.golde.android.carcontroller.ui;
+package org.golde.android.carcontroller.ui.picker;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import org.golde.android.carcontroller.MainActivity;
 import org.golde.android.carcontroller.R;
+import org.golde.android.carcontroller.ui.BetterColor;
+import org.golde.android.carcontroller.ui.ColorChangeCallback;
 
 public class ColorPickerWheel {
 
