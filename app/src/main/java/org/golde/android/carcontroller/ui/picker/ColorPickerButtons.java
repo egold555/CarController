@@ -16,7 +16,7 @@ public class ColorPickerButtons {
         this.callback = callback;
         setupButton(main, R.id.colorButton1, "#FF0000"); //Red
         setupButton(main, R.id.colorButton2, "#FFAA00"); //Orange
-        setupButton(main, R.id.colorButton3, "#FFF000"); //Yellow
+        setupButton(main, R.id.colorButton3, "#FFFF00"); //Yellow
         setupButton(main, R.id.colorButton4, "#00FF00"); //Green
         setupButton(main, R.id.colorButton5, "#00FFFF"); //Light Blue
         setupButton(main, R.id.colorButton6, "#0000FF"); //Blue
