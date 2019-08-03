@@ -8,6 +8,10 @@ public class BetterColor {
     public final int rUI, gUI, bUI, colorUI;
     public final String hexUI;
 
+    public BetterColor(int color){
+        this(Color.red(color), Color.green(color), Color.blue(color), Color.alpha(color));
+    }
+
     public BetterColor(int r, int g, int b, int brightness){
         this.r = r;
         this.g = g;

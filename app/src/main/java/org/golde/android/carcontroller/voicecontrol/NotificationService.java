@@ -13,6 +13,7 @@ import android.util.Log;
 
 import org.golde.android.carcontroller.MainActivity;
 import org.golde.android.carcontroller.ui.BetterColor;
+import org.golde.android.carcontroller.ui.ColorChangeCallback;
 
 /*
 Intercept IFTTT notifications to change the color of the lights
@@ -25,9 +26,9 @@ public class NotificationService extends NotificationListenerService {
     private static final String ENABLED_NOTIFICATION_LISTENERS = "enabled_notification_listeners";
     private static final String ACTION_NOTIFICATION_LISTENER_SETTINGS = "android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS";
 
-    static NotificationColorCallback callback;
+    static ColorChangeCallback callback;
 
-    public static void setCallback(NotificationColorCallback callback){
+    public static void setCallback(ColorChangeCallback callback){
         NotificationService.callback = callback;
     }
 
@@ -106,54 +107,6 @@ public class NotificationService extends NotificationListenerService {
         }
 
         return false;
-    }
-
-//    static String toHex(String str) {
-//        String hex = null;
-//
-//        if (str == null) {
-//            return null;
-//        }
-//
-//        if (str.equalsIgnoreCase("Black"))
-//            hex = "#000000";
-//        else if(str.equalsIgnoreCase("Silver"))
-//            hex = "#C0C0C0";
-//        else if(str.equalsIgnoreCase("Gray"))
-//            hex = "#808080";
-//        else if(str.equalsIgnoreCase("White"))
-//            hex = "#FFFFFF";
-//        else if(str.equalsIgnoreCase("Maroon"))
-//            hex = "#800000";
-//        else if(str.equalsIgnoreCase("Red"))
-//            hex = "#FF0000";
-//        else if(str.equalsIgnoreCase("Purple"))
-//            hex = "#800080";
-//        else if(str.equalsIgnoreCase("Fuchsia"))
-//            hex = "#FF00FF";
-//        else if(str.equalsIgnoreCase("Green"))
-//            hex = "#008000";
-//        else if(str.equalsIgnoreCase("Lime"))
-//            hex = "#00FF00";
-//        else if(str.equalsIgnoreCase("Olive"))
-//            hex = "#808000";
-//        else if(str.equalsIgnoreCase("Yellow"))
-//            hex = "#FFFF00";
-//        else if(str.equalsIgnoreCase("Navy"))
-//            hex = "#000080";
-//        else if(str.equalsIgnoreCase("Blue"))
-//            hex = "#0000FF";
-//        else if(str.equalsIgnoreCase("Teal"))
-//            hex = "#008080";
-//        else if(str.equalsIgnoreCase("Aqua"))
-//            hex = "#00FFFF";
-//        else if(str.equalsIgnoreCase("Orange"))
-//            hex = "#FF8000";
-//        return hex;
-//    }
-
-    public interface NotificationColorCallback {
-        public void onColorChange(BetterColor color);
     }
 
 }

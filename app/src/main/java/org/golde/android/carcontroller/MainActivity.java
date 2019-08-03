@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import org.golde.android.carcontroller.bluetooth.BlinkyController;
 import org.golde.android.carcontroller.bluetooth.BluetoothConstants;
 import org.golde.android.carcontroller.ui.BetterColor;
-import org.golde.android.carcontroller.ui.ColorPicker;
+import org.golde.android.carcontroller.ui.ColorChangeCallback;
+import org.golde.android.carcontroller.ui.ColorPickerButtons;
+import org.golde.android.carcontroller.ui.ColorPickerWheel;
 import org.golde.android.carcontroller.ui.ColorViewer;
 import org.golde.android.carcontroller.voicecontrol.NotificationService;
 
@@ -18,9 +20,10 @@ TODO:
 
 public class MainActivity extends AppCompatActivity {
 
-     private ColorPicker colorPicker;
+     private ColorPickerWheel colorPickerWheel;
      private BlinkyController blinkyController;
      private ColorViewer colorViewer;
+    private ColorPickerButtons colorPickerButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
         blinkyController.connect(BluetoothConstants.MAC_ADDRESS);
 
-        colorPicker = new ColorPicker(this, new ColorPicker.ColorPickerCallback() {
+        colorPickerWheel = new ColorPickerWheel(this, new ColorChangeCallback() {
+            @Override
+            public void onColorChange(BetterColor color) {
+                setColor(color);
+            }
+        });
+
+        colorPickerButtons = new ColorPickerButtons(this, new ColorChangeCallback() {
             @Override
             public void onColorChange(BetterColor color) {
                 setColor(color);
@@ -44,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         NotificationService.checkPermission(this);
 
-        NotificationService.setCallback(new NotificationService.NotificationColorCallback() {
+        NotificationService.setCallback(new ColorChangeCallback() {
             @Override
             public void onColorChange(BetterColor color) {
                 setColor(color);

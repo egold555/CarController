@@ -10,9 +10,9 @@ import android.widget.SeekBar;
 import org.golde.android.carcontroller.MainActivity;
 import org.golde.android.carcontroller.R;
 
-public class ColorPicker {
+public class ColorPickerWheel {
 
-    private final ColorPickerCallback callback;
+    private final ColorChangeCallback callback;
 
     ImageView mImageView;
 
@@ -23,7 +23,7 @@ public class ColorPicker {
 
     private int r = 255, g = 255, b = 255, brightness = 55;
 
-    public ColorPicker(MainActivity main, ColorPickerCallback callback){
+    public ColorPickerWheel(MainActivity main, ColorChangeCallback callback){
         this.callback = callback;
 
         mImageView = main.findViewById(R.id.imageView);
@@ -94,10 +94,6 @@ public class ColorPicker {
 
     void calcColor(){
         callback.onColorChange(new BetterColor(r, g, b, brightness));
-    }
-
-    public interface ColorPickerCallback {
-        public void onColorChange(BetterColor color);
     }
 
 }
