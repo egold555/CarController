@@ -12,23 +12,23 @@ public class ColorPickerButtons {
 
     public ColorPickerButtons(MainActivity main, ColorChangeCallback callback){
         this.callback = callback;
-        setupButton(main, R.id.colorButton1, 0xFFFF0000); //Red
-        setupButton(main, R.id.colorButton1, 0xFFFA0000); //Orange
-        setupButton(main, R.id.colorButton1, 0xFFFFF000); //Yellow
-        setupButton(main, R.id.colorButton1, 0xFF00FF00); //Green
-        setupButton(main, R.id.colorButton1, 0xFF00FFFF); //Light Blue
-        setupButton(main, R.id.colorButton1, 0xFF0000FF); //Blue
-        setupButton(main, R.id.colorButton1, 0xFFFF00FF); //Purple
-        setupButton(main, R.id.colorButton1, 0xFFFFFFFF); //White
+        setupButton(main, R.id.colorButton1, "#FF0000"); //Red
+        setupButton(main, R.id.colorButton2, "#FFAA00"); //Orange
+        setupButton(main, R.id.colorButton3, "#FFF000"); //Yellow
+        setupButton(main, R.id.colorButton4, "#00FF00"); //Green
+        setupButton(main, R.id.colorButton5, "#00FFFF"); //Light Blue
+        setupButton(main, R.id.colorButton6, "#0000FF"); //Blue
+        setupButton(main, R.id.colorButton7, "#FF00FF"); //Purple
+        setupButton(main, R.id.colorButton8, "#FFFFFF"); //White
 
     }
 
-    private void setupButton(MainActivity main, int id, int color){
+    private void setupButton(MainActivity main, int id, String hex){
         Button button = main.findViewById(id);
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                callback.onColorChange(new BetterColor(color));
+                callback.onColorChange(new BetterColor(hex));
             }
         });
     }

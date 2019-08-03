@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 
 import org.golde.android.carcontroller.MainActivity;
 import org.golde.android.carcontroller.R;
@@ -19,16 +18,16 @@ public class ColorPickerWheel {
 
     Bitmap bitmap;
 
-    SeekBar alphaSlider;
 
-    private int r = 255, g = 255, b = 255, brightness = 55;
+
+    private int r = 255, g = 255, b = 255;
 
     public ColorPickerWheel(MainActivity main, ColorChangeCallback callback){
         this.callback = callback;
 
         mImageView = main.findViewById(R.id.imageView);
 
-        alphaSlider = main.findViewById(R.id.seekBar);
+
 
         //Not exactly sure what this does but I needed it
         mImageView.setDrawingCacheEnabled(true);
@@ -71,29 +70,12 @@ public class ColorPickerWheel {
             }
         });
 
-        alphaSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                brightness = progress;
 
-                calcColor();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
 
     }
 
     void calcColor(){
-        callback.onColorChange(new BetterColor(r, g, b, brightness));
+        callback.onColorChange(new BetterColor(r, g, b));
     }
 
 }

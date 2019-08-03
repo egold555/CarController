@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import org.golde.android.carcontroller.bluetooth.BlinkyController;
 import org.golde.android.carcontroller.bluetooth.BluetoothConstants;
 import org.golde.android.carcontroller.ui.BetterColor;
+import org.golde.android.carcontroller.ui.BrightnessPicker;
 import org.golde.android.carcontroller.ui.ColorChangeCallback;
 import org.golde.android.carcontroller.ui.ColorPickerButtons;
 import org.golde.android.carcontroller.ui.ColorPickerWheel;
@@ -23,7 +24,10 @@ public class MainActivity extends AppCompatActivity {
      private ColorPickerWheel colorPickerWheel;
      private BlinkyController blinkyController;
      private ColorViewer colorViewer;
-    private ColorPickerButtons colorPickerButtons;
+        private ColorPickerButtons colorPickerButtons;
+        private BrightnessPicker brightnessPicker;
+
+    private BetterColor theColor = new BetterColor(255, 255, 255, 255);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         checkPermission();
+
+        brightnessPicker = new BrightnessPicker(new BrightnessPicker.BrightnessCallback(){
+
+            @Override
+            public void onBrightnessChange(int brightness){};
+        });
 
         colorViewer = new ColorViewer(this);
 
@@ -65,11 +75,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //TODO: Make these two seperate calls. Doesn't seem to affect performance of device though
-    private void setColor(BetterColor color){
-        colorViewer.updateUI(color);
-        blinkyController.sendColor(color);
-        blinkyController.sendBrightness(color);
 
+    private void setColor(BetterColor color){
+        this.theColor.setRGB(color);
+        colorViewer.updateUI(theColor);
+        blinkyController.sendColor(theColor);
+    }
+
+    private void setBrightness(int brightness){
+        this.theColor.setBrightness(brightness);
+        colorViewer.updateUI(theColor);
+        blinkyController.sendBrightness(theColor);
     }
 
     @Override
