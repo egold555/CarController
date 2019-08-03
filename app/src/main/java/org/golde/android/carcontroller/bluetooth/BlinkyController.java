@@ -7,6 +7,7 @@ import android.content.Context;
 import android.os.Handler;
 
 import org.golde.android.carcontroller.MainActivity;
+import org.golde.android.carcontroller.ui.BetterColor;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -96,12 +97,12 @@ public class BlinkyController implements BlinkyManagerCallbacks {
         manager.disconnect().enqueue();
     }
 
-    public void sendColor(int r, int g, int b){
-        manager.sendColor(r, g, b);
+    public void sendColor(BetterColor c){
+        manager.sendColor(c.r, c.g, c.b);
     }
 
-    public void sendBrightness(int brightness){
-        manager.sendBrightness(brightness);
+    public void sendBrightness(BetterColor c){
+        manager.sendBrightness(c.brightness);
     }
 
     public void sendKeepAlive(){

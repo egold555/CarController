@@ -1,4 +1,4 @@
-package org.golde.android.carcontroller;
+package org.golde.android.carcontroller.ui;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -6,29 +6,28 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
-import android.widget.TextView;
+
+import org.golde.android.carcontroller.MainActivity;
+import org.golde.android.carcontroller.R;
 
 public class ColorPicker {
 
     private final ColorPickerCallback callback;
 
     ImageView mImageView;
-    TextView mTextResult;
-    View mColorView;
+
 
     Bitmap bitmap;
 
     SeekBar alphaSlider;
 
-    private int or = 255, og = 255, ob = 255;
-    private float a = 1;
+    private int r = 255, g = 255, b = 255, brightness = 55;
 
     public ColorPicker(MainActivity main, ColorPickerCallback callback){
         this.callback = callback;
 
         mImageView = main.findViewById(R.id.imageView);
-        mTextResult = main.findViewById(R.id.resultTv);
-        mColorView = main.findViewById(R.id.colorView);
+
         alphaSlider = main.findViewById(R.id.seekBar);
 
         //Not exactly sure what this does but I needed it
@@ -60,9 +59,9 @@ public class ColorPicker {
                         return true;
                     }
 
-                    or = Color.red(pixel);
-                    og = Color.green(pixel);
-                    ob = Color.blue(pixel);
+                    r = Color.red(pixel);
+                    g = Color.green(pixel);
+                    b = Color.blue(pixel);
 
                     calcColor();
 
@@ -75,7 +74,7 @@ public class ColorPicker {
         alphaSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                a = (progress /255F); //0 - 100 > 0 - 1
+                brightness = progress;
 
                 calcColor();
             }
@@ -94,24 +93,11 @@ public class ColorPicker {
     }
 
     void calcColor(){
-
-        int r = (int)(or * a);
-        int g = (int)(og * a);
-        int b = (int)(ob * a);
-
-        int pickedColor = Color.rgb(r, g, b);
-
-        String hex = "#" + Integer.toHexString(pickedColor);
-
-        mColorView.setBackgroundColor(pickedColor);
-
-        mTextResult.setText("RGB: " + r + ", " + g + ", " + b + "\nHEX: " + hex);
-
-        callback.onColorChange(or, og, ob, (int)(a * 255), r, g, b);
+        callback.onColorChange(new BetterColor(r, g, b, brightness));
     }
 
     public interface ColorPickerCallback {
-        public void onColorChange(int rRaw, int gRaw, int bRaw, int brightness, int rMod, int gMod, int bMod);
+        public void onColorChange(BetterColor color);
     }
 
 }
