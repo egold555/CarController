@@ -75,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    //TODO: Make these two seperate calls. Doesn't seem to affect performance of device though
-
     private void setColor(BetterColor color){
         this.theColor.setRGB(color);
         colorViewer.updateUI(theColor);
