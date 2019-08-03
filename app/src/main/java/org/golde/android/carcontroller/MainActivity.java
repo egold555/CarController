@@ -36,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
 
         checkPermission();
 
-        brightnessPicker = new BrightnessPicker(new BrightnessPicker.BrightnessCallback(){
-
+       new BrightnessPicker(this, new BrightnessPicker.BrightnessCallback(){
             @Override
-            public void onBrightnessChange(int brightness){};
+            public void onBrightnessChange(int brightness) {
+                setBrightness(brightness);
+            }
         });
 
         colorViewer = new ColorViewer(this);
